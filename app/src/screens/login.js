@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 import { Button } from 'react-native-paper';
 import { useEffect, useState } from "react";
 import { Alert, Platform, StyleSheet, Text, View, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 // You need to swap out the Auth0 client id and domain with the one from your Auth0 client.
 // In your Auth0 client, you need to also add a url to your authorized redirect urls.
@@ -19,6 +20,8 @@ const useProxy = Platform.select({ web: false, default: true });
 const redirectUri = AuthSession.makeRedirectUri({ useProxy });
 
 export default function Login() {
+
+  const navigation = useNavigation();
   const [name, setName] = useState(null);
 
   const [request, result, promptAsync] = AuthSession.useAuthRequest(
@@ -57,6 +60,7 @@ export default function Login() {
 
         const { name } = decoded;
         setName(name);
+        navigation.navigate('Home',{name:name})
       }
     }
   }, [result]);
@@ -73,7 +77,7 @@ export default function Login() {
       ) : (
         <Button
         mode="contained"
-        style={{borderRadius:20, paddingHorizontal:'5%', paddingVertical:'.5%', marginTop:'15%', backgroundColor:"#961547"}}
+        style={{borderRadius:20, paddingHorizontal:'5%', paddingVertical:'.5%', marginTop:'15%', backgroundColor:"#581596"}}
         disabled={!request}
         onPress={() => promptAsync({ useProxy })}
         >Log in with Auth0</Button>

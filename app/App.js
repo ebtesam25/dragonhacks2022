@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/login';
+import Home from './src/screens/home';
+import Book from './src/screens/book';
 
 
 
@@ -15,6 +17,16 @@ function ScreenStack() {
       <Stack.Screen 
         name="Login" 
         component={Login} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Home" 
+        component={Home} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Book" 
+        component={Book} 
         options={{ headerShown: false}} 
       />
     </Stack.Navigator>
