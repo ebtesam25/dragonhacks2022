@@ -14,23 +14,6 @@ import storylib as slib
 
 
 
-# def initdb():
-    
-#     mongostr = "mongodb://teamzero:ItVNHcsM3Lsw2KhwWngRStQtJaqTD8rDNoYNml80Bz1CeFUshtd6lnOgIUutehx3i8WTpk1dOriipfrwbMLmfw==@teamzero.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@teamzero@"
-#     client = pymongo.MongoClient(mongostr)
-#     db = client["masongives"]
-
-#     return client, db
-
-
-# def initdb2():
-    
-#     mongostr = "mongodb://teamzero:ItVNHcsM3Lsw2KhwWngRStQtJaqTD8rDNoYNml80Bz1CeFUshtd6lnOgIUutehx3i8WTpk1dOriipfrwbMLmfw==@teamzero.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@teamzero@"
-#     client = pymongo.MongoClient(mongostr)
-#     db = client["sentimentizer"]
-
-    # return client, db
-
 texturl = "http://49b5-35-223-164-204.ngrok.io/getstory"
 imgurl = "http://2364-34-124-230-90.ngrok.io/testgen"
 
@@ -54,8 +37,7 @@ oitems = ""
 
 def sendwhatsapp(text, tonum, fromnum):
     
-    account_sid = 'AC2e9791a102ff64ae9008e3fbb3a5cec5' 
-    auth_token = '57649108e11165660bab29ee3744d7cd' 
+
     client = Client(account_sid, auth_token) 
     
     message = client.messages.create( 
